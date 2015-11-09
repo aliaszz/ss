@@ -12,27 +12,31 @@ $(function(){
 
     //$(".banner1").attr("src","//lorempixel.com/351/299/?"+BannerSrc());
     //$(".banner2").attr("src","//lorempixel.com/351/299/?"+BannerSrc());
-    function BannerSrc(){
-        var items = Math.random()*1000+1;
-        items = Math.floor(items);
-        return items;
-    }
-    $('.hero_banner').imagesLoaded()
+    //function BannerSrc(){
+    //    var items = Math.random()*1000+1;
+    //    items = Math.floor(items);
+    //    return items;
+    //}
+    $(".hero").css("height",$(window).height()-62);
+    $(".hero_banner").css("height",$(window).height());
+    setInterval(function(){
+        if($(".banner_iphone").css("opacity") == 0){
+            $(".banner_iphone").css("opacity","1");
+            $(".banner_android").css("opacity","0");
+        }else{
+            $(".banner_iphone").css("opacity","0");
+            $(".banner_android").css("opacity","1");
+        }
+    },5000)
+    $('.view').imagesLoaded()
         .always( function( instance ) {
-            console.log('all images loaded');
+            //console.log('all images loaded');
             $(".loading").css("display","none");
             $(".view").css("opacity","1");
         })
-        .done( function( instance ) {
-            console.log('all images successfully loaded');
-        })
-        .fail( function() {
-            console.log('all images loaded, at least one is broken');
-        })
-        .progress( function( instance, image ) {
-            var result = image.isLoaded ? 'loaded' : 'broken';
-            console.log( 'image is ' + result + ' for ' + image.img.src );
-        });
 
+    var username = "pnz_555";
+    var hostname = "icloud.com";
+    $(".connect_mail").append("<a href='mailto:"+username + "@" + hostname+"'>"+username + "@" + hostname+"</a>");
 
 })

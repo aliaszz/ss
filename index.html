@@ -9,7 +9,7 @@
     <title>ss</title>
     <style type="text/css">
         html {-webkit-text-size-adjust:none;cursor: default;background-color: #ffffff;}
-        body {  position:relative;font-family:"PingHei", "STHeitiSC-Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif; color:#4f4f4f;width: 100%;margin: auto;-webkit-font-smoothing: antialiased;}
+        body {  position:relative;font-family:"PingHei", "STHeitiSC-Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif; color:#4f4f4f;width: 100%;margin: auto;-webkit-font-smoothing: antialiased;min-width: 1070px;font-size: 14px;}
         *{ padding:0; margin:0;}
         ul,li{ list-style:none;}
         img{ border:0;}
@@ -51,32 +51,59 @@
             width: 32px;
             position: fixed;
         }
-        .top{width: 100%;height: 62px;background-color: #22a565;vertical-align: middle;text-align: center;}
+        .top{width: 100%;height: 62px;background-color: #22a565;vertical-align: middle;text-align: center;position: relative;z-index: 5;}
         .top img{margin-top: 10px;}
-        .hero{width: 1070px;margin: 0 auto;}
-        .hero_left{width: 446px;margin: 76px 0 0 43px;}
+        .hero{width: 1070px;margin: 0 auto;min-height: 780px;}
+        .hero_left{width: 446px;margin: 0 0 0 43px;position: relative;z-index: 3;top: 76px;}
+        .hero_left .ss_logo{display: block;margin: 0 auto 30px;}
+        .hero_left .left_content{display: block;margin: 0 auto;}
         .hero_left .hero_download{width: 371px;margin: 60px auto 0;}
         .hero_left .hero_download .hero_download_box .download_btn{width: 167px;height: 60px;border-radius: 5px;background-color: #22a565;line-height: 60px;}
         .hero_left .hero_download .hero_download_box .download_btn .android_icon{vertical-align: middle;margin-left: 21px;margin-right: 19px;}
         .hero_left .hero_download .hero_download_box .download_btn .ios_icon{vertical-align: middle;margin-left: 23px;margin-right: 13px;}
         .hero_left .hero_download .hero_download_box .download_btn .download_text{vertical-align: middle;}
-        .hero_left .hero_download .hero_download_box p{color: #aeaeae;font-size: 18px;text-align: center;margin: 17px auto 5px;}
+        .hero_left .hero_download .hero_download_box p{color: #aeaeae;font-size: 1em;text-align: center;margin: 17px auto 5px;}
         .hero_left .hero_download .hero_download_box .android_code{display: none;}
         .hero_left .hero_download .hero_download_android{float: left;}
         .hero_left .hero_download .hero_download_ios{float: right;}
 
-        .hero_banner{position: relative;top: 0;right: 0;}
-        .hero_banner .banner_android{position: absolute;z-index: 1;
+        .hero_banner{position: absolute;top: 0;right: 0;height: 100%;overflow: hidden;width: 688px;min-height: 842px;}
+        .hero_banner .banner_android{position: absolute;z-index: 1;top: 120px;right: -40px;
             opacity: 0;
             -webkit-transition: opacity 1000ms;
             -moz-transition: opacity 1000ms;
             transition: opacity 1000ms;
         }
-        .hero_banner .banner_iphone{position: absolute;z-index: 2;top: -62px;right: 107px;
+        .hero_banner .banner_iphone{position: absolute;z-index: 2;top: -40px;right: 0;
             opacity: 1;
             -webkit-transition: opacity 1000ms;
             -moz-transition: opacity 1000ms;
             transition: opacity 1000ms;
+        }
+        .bottom{width: 1070px;color: #878b8e;margin: 0 auto;font-size: 1em;}
+        .bottom .bottom_line{width: 100%;height: 1px;background-color: #bfbfbf;}
+        .bottom .connect{margin-top: 17px;margin-bottom: 5px;margin-left: 5px;}
+        .bottom .connect .connect_mail{float: left;}
+        .bottom .connect .connect_mail a{color: #2ba367;}
+        .bottom .connect .copyright{float: right;}
+        .bottom .filing_number{margin: 0 0 25px 5px;}
+        /*不同分辨率*/
+        @media screen and (max-width: 835px) {
+            body{font-size: 14px;min-width: 735px;}
+            .hero{width: 735px;min-height: 735px;}
+            .hero_left{width: 286px;}
+            .ss_logo{width: 125px;}
+            .left_content{width: 286px;}
+            .hero_left .hero_download{width: 306px;margin: 50px 0 0 -11px;}
+            .hero_left .hero_download .hero_download_box .download_btn{width: 137px;height: 50px;line-height: 50px;}
+            .hero_left .hero_download .hero_download_box .download_btn .android_icon{width: 27px;margin-left: 18px;margin-right: 15px;}
+            .hero_left .hero_download .hero_download_box .download_btn .ios_icon{width: 23px;margin-left: 20px;margin-right: 18px;}
+            .hero_left .hero_download .hero_download_box .download_btn .download_text{width: 44px;}
+            .hero_banner .banner_iphone{width: 480px;right: -35px;top: 51px;}
+            .hero_banner .banner_android{width: 420px;right: -28px;top: 205px;}
+        }
+        @media screen and (min-width: 836px){
+            body{font-size: 18px;}
         }
     </style>
 </head>
@@ -90,30 +117,39 @@
     </div>
     <div class="hero">
         <div class="hero_left">
-            <img src="images/left-content.png" alt="体验全新订水方式" width="446" height="198">
+            <img class="ss_logo" src="images/ss-logo.png" alt="">
+            <img class="left_content" src="images/left-content.png" alt="体验全新订水方式">
             <div class="hero_download">
                 <div class="hero_download_box hero_download_android">
                     <div class="download_btn">
-                        <img class="android_icon" src="images/android-icon.png" alt="" width="33" height="38">
-                        <img class="download_text" src="images/download-text.png" alt="下载" width="55" height="26">
+                        <img class="android_icon" src="images/android-icon.png" alt="">
+                        <img class="download_text" src="images/download-text.png" alt="下载">
                     </div>
                     <p>扫描二维码下载 ></p>
                     <img class="android_code" src="images/code-vcard.png" alt="">
                 </div>
                 <div class="hero_download_box hero_download_ios">
                     <div class="download_btn">
-                        <img class="ios_icon" src="images/apple-icon.png" alt="" width="29" height="35">
-                        <img class="download_text" src="images/download-text.png" alt="下载" width="55" height="26">
+                        <img class="ios_icon" src="images/apple-icon.png" alt="">
+                        <img class="download_text" src="images/download-text.png" alt="下载">
                     </div>
                     <p>扫描二维码下载 ></p>
                     <img class="android_code" src="images/code-vcard.png" alt="">
                 </div>
             </div>
         </div>
+        <div class="hero_banner">
+            <img src="images/banner-android.jpg" alt="" class="banner_android">
+            <img src="images/banner-iphone.jpg" alt="" class="banner_iphone">
+        </div>
     </div>
-    <div class="hero_banner">
-        <img src="images/banner-android.jpg" alt="" class="banner_android" width="603">
-        <img src="images/banner-iphone.jpg" alt="" class="banner_iphone" width="688">
+    <div class="bottom">
+        <div class="bottom_line"></div>
+        <div class="connect clearfloat">
+            <p class="connect_mail">取得联系，请发送电子邮件至 : </p>
+            <p class="copyright">Copyright © 2015 SS Technology.</p>
+        </div>
+        <p class="filing_number">京ICP备15048953</p>
     </div>
 </div>
 <script src="js/main.js" type="text/javascript"></script>
