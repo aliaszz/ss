@@ -23,7 +23,9 @@
 
         .view{
             position: relative;
+            overflow: hidden;
             opacity: 0;
+            filter: alpha(opacity=0);
             -webkit-transition: opacity 1000ms;
             -moz-transition: opacity 1000ms;
             transition: opacity 1000ms;
@@ -53,40 +55,50 @@
         }
         .top{width: 100%;height: 62px;background-color: #22a565;vertical-align: middle;text-align: center;position: relative;z-index: 5;}
         .top img{margin-top: 10px;}
-        .hero{width: 1070px;margin: 0 auto;min-height: 780px;}
+        .hero{width: 1070px;margin: 0 auto;min-height: 840px;position: relative;}
         .hero_left{width: 446px;margin: 0 0 0 43px;position: relative;z-index: 3;top: 76px;}
         .hero_left .ss_logo{display: block;margin: 0 auto 30px;}
         .hero_left .left_content{display: block;margin: 0 auto;}
         .hero_left .hero_download{width: 371px;margin: 60px auto 0;}
-        .hero_left .hero_download .hero_download_box .download_btn{width: 167px;height: 60px;border-radius: 5px;background-color: #22a565;line-height: 60px;}
+        .hero_left .hero_download .hero_download_box .download_btn{width: 167px;height: 60px;border-radius: 5px;background-color: #22a565;line-height: 60px;display: block;}
         .hero_left .hero_download .hero_download_box .download_btn .android_icon{vertical-align: middle;margin-left: 21px;margin-right: 19px;}
         .hero_left .hero_download .hero_download_box .download_btn .ios_icon{vertical-align: middle;margin-left: 23px;margin-right: 13px;}
         .hero_left .hero_download .hero_download_box .download_btn .download_text{vertical-align: middle;}
         .hero_left .hero_download .hero_download_box p{color: #aeaeae;font-size: 1em;text-align: center;margin: 17px auto 5px;}
-        .hero_left .hero_download .hero_download_box .android_code{display: none;}
+        .hero_left .hero_download .hero_download_box p:hover{text-decoration: underline;cursor: pointer;}
+        .hero_left .hero_download .hero_download_box .android_code{
+            position: relative;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            -webkit-transition: opacity 300ms;
+            -moz-transition: opacity 300ms;
+            transition: opacity 300ms;
+        }
         .hero_left .hero_download .hero_download_android{float: left;}
         .hero_left .hero_download .hero_download_ios{float: right;}
 
-        .hero_banner{position: absolute;top: 0;right: 0;height: 100%;overflow: hidden;width: 688px;min-height: 842px;}
+        .hero_banner{position: absolute;top: 0;right: 0;height: 100%;width: 688px;min-height: 842px;}
         .hero_banner .banner_android{position: absolute;z-index: 1;top: 120px;right: -40px;
             opacity: 0;
+            filter: alpha(opacity=60);
             -webkit-transition: opacity 1000ms;
             -moz-transition: opacity 1000ms;
             transition: opacity 1000ms;
         }
-        .hero_banner .banner_iphone{position: absolute;z-index: 2;top: -40px;right: 0;
+        .hero_banner .banner_iphone{position: absolute;z-index: 2;top: -80px;right: -70px;
             opacity: 1;
+            filter: alpha(opacity=100);
             -webkit-transition: opacity 1000ms;
             -moz-transition: opacity 1000ms;
             transition: opacity 1000ms;
         }
-        .bottom{width: 1070px;color: #878b8e;margin: 0 auto;font-size: 1em;}
+        .bottom{width: 100%;max-width: 1070px;color: #878b8e;margin: 0 auto;font-size: 1em;position: relative;z-index: 4;background: #ffffff;padding-bottom: 25px;}
         .bottom .bottom_line{width: 100%;height: 1px;background-color: #bfbfbf;}
         .bottom .connect{margin-top: 17px;margin-bottom: 5px;margin-left: 5px;}
         .bottom .connect .connect_mail{float: left;}
         .bottom .connect .connect_mail a{color: #2ba367;}
         .bottom .connect .copyright{float: right;}
-        .bottom .filing_number{margin: 0 0 25px 5px;}
+        .bottom .filing_number{margin: 0 0 0 5px;}
         /*不同分辨率*/
         @media screen and (max-width: 835px) {
             body{font-size: 14px;min-width: 735px;}
@@ -99,8 +111,9 @@
             .hero_left .hero_download .hero_download_box .download_btn .android_icon{width: 27px;margin-left: 18px;margin-right: 15px;}
             .hero_left .hero_download .hero_download_box .download_btn .ios_icon{width: 23px;margin-left: 20px;margin-right: 18px;}
             .hero_left .hero_download .hero_download_box .download_btn .download_text{width: 44px;}
-            .hero_banner .banner_iphone{width: 480px;right: -35px;top: 51px;}
-            .hero_banner .banner_android{width: 420px;right: -28px;top: 205px;}
+            .hero_banner .banner_iphone{width: 480px;right: -35px;top: -11px;}
+            .hero_banner .banner_android{width: 420px;right: -28px;top: 100px;}
+            .hero_left .hero_download .hero_download_box .android_code{width: 137px;}
         }
         @media screen and (min-width: 836px){
             body{font-size: 18px;}
@@ -121,18 +134,18 @@
             <img class="left_content" src="images/left-content.png" alt="体验全新订水方式">
             <div class="hero_download">
                 <div class="hero_download_box hero_download_android">
-                    <div class="download_btn">
+                    <a class="download_btn" href="http://a.app.qq.com/o/simple.jsp?pkgname=sjzd.smoothwater.customer&g_f=991653">
                         <img class="android_icon" src="images/android-icon.png" alt="">
                         <img class="download_text" src="images/download-text.png" alt="下载">
-                    </div>
+                    </a>
                     <p>扫描二维码下载 ></p>
                     <img class="android_code" src="images/code-vcard.png" alt="">
                 </div>
                 <div class="hero_download_box hero_download_ios">
-                    <div class="download_btn">
+                    <a class="download_btn" href="https://appsto.re/cn/I_tv9.i">
                         <img class="ios_icon" src="images/apple-icon.png" alt="">
                         <img class="download_text" src="images/download-text.png" alt="下载">
-                    </div>
+                    </a>
                     <p>扫描二维码下载 ></p>
                     <img class="android_code" src="images/code-vcard.png" alt="">
                 </div>
